@@ -1,6 +1,6 @@
-# disenos
+# Flutter UI design
 
-A new Flutter project.
+This a Flutter project.
 
 ## Getting Started
 
