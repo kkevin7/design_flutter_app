@@ -7,17 +7,18 @@ class BotonesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
-      children: <Widget>[
-        _fondoApp(),
-        SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              _titulos(),
-            ],
-          ),
+          children: <Widget>[
+            _fondoApp(),
+            SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  _titulos(),
+                ],
+              ),
+            ),
+          ],
         ),
-      ],
-    ));
+        bottomNavigationBar: _bottomNavigationBar(context));
   }
 
   Widget _fondoApp() {
@@ -64,11 +65,52 @@ class BotonesPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Classify Transaction', style: TextStyle(color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.bold),),
-            SizedBox(height: 10.0,),
-            Text('Classify thistrasaction into a particular category', style: TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.bold)),
+            Text(
+              'Classify Transaction',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text('Classify thistrasaction into a particular category',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold)),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _bottomNavigationBar(BuildContext context) {
+    return new Theme(
+      data: Theme.of(context).copyWith(
+        canvasColor: Color.fromRGBO(55,57,84,1.0),
+        primaryColor: Colors.pinkAccent,
+        textTheme: Theme.of(context).textTheme.copyWith(
+          caption: TextStyle(color: Color.fromRGBO(116, 177, 152, 1.0))
+        )
+      ),
+      child: BottomNavigationBar(
+        fixedColor: Colors.pink,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            title: Container(),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bubble_chart),
+            title: Container(),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.supervised_user_circle),
+            title: Container(),
+          )
+        ],
       ),
     );
   }
