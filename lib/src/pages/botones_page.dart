@@ -117,21 +117,25 @@ class BotonesPage extends StatelessWidget {
   Widget _botonesRedondeados() {
     return Table(children: [
       TableRow(children: [
-        _crearBotonRedondeado(),
-        _crearBotonRedondeado(),
+        _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
+        _crearBotonRedondeado(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
       ]),
       TableRow(children: [
-        _crearBotonRedondeado(),
-        _crearBotonRedondeado(),
+        _crearBotonRedondeado(Colors.pinkAccent, Icons.shop, 'Buy'),
+        _crearBotonRedondeado(Colors.orangeAccent, Icons.insert_drive_file, 'File'),
       ]),
       TableRow(children: [
-        _crearBotonRedondeado(),
-        _crearBotonRedondeado(),
+        _crearBotonRedondeado(Colors.blueAccent, Icons.movie_filter, 'Entretainment'),
+        _crearBotonRedondeado(Colors.green, Icons.cloud, 'Grecery'),
+      ]),
+      TableRow(children: [
+        _crearBotonRedondeado(Colors.red, Icons.collections, 'Photos'),
+        _crearBotonRedondeado(Colors.teal, Icons.help_outline, 'FQA'),
       ]),
     ]);
   }
 
-  Widget _crearBotonRedondeado() {
+  Widget _crearBotonRedondeado(Color color, IconData  icono, String texto) {
     return Container(
       height: 180.0,
       margin: EdgeInsets.all(15.0),
@@ -143,11 +147,11 @@ class BotonesPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           CircleAvatar(
-            backgroundColor: Colors.pinkAccent,
+            backgroundColor: color,
             radius: 35.0,
-            child: Icon(Icons.swap_calls, color: Colors.white, size: 30.0,),
+            child: Icon(icono, color: Colors.white, size: 30.0,),
           ),
-          Text('Cosa', style: TextStyle(color: Colors.pinkAccent),),
+          Text(texto, style: TextStyle(color: color),),
           SizedBox(
             height: 5.0,
           )
